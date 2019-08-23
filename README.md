@@ -8,9 +8,6 @@ CONTENTS OF THIS FILE
  * Requirements
  * Installation
  * Configuration
- * Customization
- * Troubleshooting
- * FAQ
  * Maintainers
 
 
