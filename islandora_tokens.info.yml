@@ -1,0 +1,6 @@
+name: DHR Islandora Tokens
+description: Tokens for Islandora Object metatags, e.g. Thumbnail Image URL.
+package: DHR
+type: module
+core: 8.x
+version: 8.x-1.0-beta1

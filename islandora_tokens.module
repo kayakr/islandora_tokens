@@ -1,0 +1,93 @@
+<?php
+
+use Drupal\islandora\IslandoraUtils;
+
+/**
+ * Implements hook_token_info().
+ */
+function islandora_tokens_token_info() {
+
+  $info['tokens']['node']['media_thumbnail_image:url'] = array(
+    'name' => t('Media: Thumbnail Image URL.'),
+    'description' => t('URL of Thumbnail Image file associated with Islandora Object via Media.'),
+  );
+
+  $info['tokens']['node']['media_thumbnail_image:alt'] = array(
+    'name' => t('Alternative text for Media: Thumbnail Image URL.'),
+    'description' => t('Alternative text for Thumbnail Image file associated with Islandora Object via Media.'),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function islandora_tokens_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  if ($type == 'node' && !empty($data['node'])) {
+    if (!is_array($tokens) || empty($tokens)) {
+      \Drupal::logger('dhr_islandora_tokens')
+        ->alert('Tokens not correct format: @tokens', [
+          '@tokens' => print_r($tokens, 1),
+        ]);
+      return;
+    }
+
+    $islandoraUtils = \Drupal::service('islandora.utils');
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+
+        case 'media_thumbnail_image:url':
+          $term = $islandoraUtils->getTermForUri('http://pcdm.org/use#ThumbnailImage');
+          $media = $islandoraUtils->getMediaWithTerm($data['node'], $term);
+          // Is there media?
+          // @todo: is this single or multiple?
+          if ($media) {
+            $file = islandora_tokens_file_from_media($media);
+            $url = $file->url();
+            $replacements[$original] = $url;
+          }
+          break;
+
+        case 'media_thumbnail_image:alt':
+          $alt = '';
+          $term = $islandoraUtils->getTermForUri('http://pcdm.org/use#ThumbnailImage');
+          $media = $islandoraUtils->getMediaWithTerm($data['node'], $term);
+          // Is there media?
+          // @todo: is this single or multiple?
+          if ($media) {
+            if (isset($media->field_media_image)) {
+              $alt = $media->field_media_image[0]->alt;
+            }
+          }
+          // @todo: get alt from original or service file, if thumbnail alt is empty.
+          $replacements[$original] = $alt;
+          break;
+      }
+    }
+  }
+
+  return $replacements;
+}
+
+/**
+ * Get File referenced by given Media.
+ * @todo: Add to IslandoraUtils?
+ * @todo: Had to remove typehint MediaInterface from function.
+ *
+ * @param \Drupal\media\MediaInterface $media
+ *   The Media to operate on.
+ *
+ * @return mixed
+ *   \Drupal\file\FileInterface on success, NULL otherwise.
+ */
+function islandora_tokens_file_from_media($media) {
+  $files = [];
+  if ($media->hasField('field_media_image')) {
+    $files = $media->get('field_media_image')->referencedEntities();
+  }
+  return !empty($files) ? reset($files) : NULL;
+}
