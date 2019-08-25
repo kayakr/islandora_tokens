@@ -1,21 +1,27 @@
 <?php
 
+/**
+ * @file
+ * Provide tokens for Repository Item Media Image URL and Alternative Text.
+ */
+
 use Drupal\islandora\IslandoraUtils;
+use Drupal\Core\Render\BubbleableMetadata;
 
 /**
  * Implements hook_token_info().
  */
 function islandora_tokens_token_info() {
 
-  $info['tokens']['node']['media_thumbnail_image:url'] = array(
+  $info['tokens']['node']['media_thumbnail_image:url'] = [
     'name' => t('Media: Thumbnail Image URL.'),
     'description' => t('URL of Thumbnail Image file associated with Islandora Object via Media.'),
-  );
+  ];
 
-  $info['tokens']['node']['media_thumbnail_image:alt'] = array(
+  $info['tokens']['node']['media_thumbnail_image:alt'] = array[
     'name' => t('Alternative text for Media: Thumbnail Image URL.'),
     'description' => t('Alternative text for Thumbnail Image file associated with Islandora Object via Media.'),
-  );
+  ];
 
   return $info;
 }
@@ -75,6 +81,7 @@ function islandora_tokens_tokens($type, $tokens, array $data, array $options, \D
 
 /**
  * Get File referenced by given Media.
+ *
  * @todo: Add to IslandoraUtils?
  * @todo: Had to remove typehint MediaInterface from function.
  *

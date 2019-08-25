@@ -14,7 +14,8 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
-An initial candidate module for implementing tokens for use with Metatag and similar modules.
+An initial candidate module for implementing tokens for use with Metatag and
+similar modules.
 
 
 REQUIREMENTS
@@ -27,7 +28,7 @@ INSTALLATION
 ------------
 
 Install as you would normally install a contributed Drupal. See:
-https://drupal.org/documentation/install/modules-themes/modules-7 for further
+https://www.drupal.org/docs/7/extend/installing-modules for further
 information.
 
 CONFIGURATION
@@ -37,7 +38,7 @@ No specific configuration is necessary. When enabled, Islandora-specific tokens
 will be available wherever tokens are used.
 
  * When used in conjunction with Metatag module, tokens such as
-   [node:media_thumbnail_image:url] can be used for metatags like twitter: image.
+   [node:media_thumbnail_image:url] can be used for metatags like twitter:image.
 
 
 MAINTAINERS
