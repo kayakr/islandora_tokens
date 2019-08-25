@@ -1,0 +1,19 @@
+{
+  "name": "drupal/islandora_tokens",
+  "description": "Provide tokens for Repository Item Media Image URL and Alternative Text.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "require": {
+    "php": ">=7"
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
+  },
+  "require-dev": {
+    "drush/drush": "^9.4"
+  }
+}
