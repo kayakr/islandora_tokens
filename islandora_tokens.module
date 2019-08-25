@@ -18,7 +18,7 @@ function islandora_tokens_token_info() {
     'description' => t('URL of Thumbnail Image file associated with Islandora Object via Media.'),
   ];
 
-  $info['tokens']['node']['media_thumbnail_image:alt'] = array[
+  $info['tokens']['node']['media_thumbnail_image:alt'] = [
     'name' => t('Alternative text for Media: Thumbnail Image URL.'),
     'description' => t('Alternative text for Thumbnail Image file associated with Islandora Object via Media.'),
   ];
