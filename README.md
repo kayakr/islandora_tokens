@@ -27,9 +27,8 @@ No special requirements
 INSTALLATION
 ------------
 
-Install as you would normally install a contributed Drupal. See:
-https://www.drupal.org/docs/user_guide/en/config-install.html for further
-information.
+ * Install as usual, see
+   https://www.drupal.org/docs/8/extending-drupal-8/installing-contributed-modules-find-import-enable-configure-drupal-8 for further information.
 
 CONFIGURATION
 -------------
