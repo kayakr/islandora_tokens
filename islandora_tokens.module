@@ -2,7 +2,10 @@
 
 /**
  * @file
- * Provide tokens for Repository Item Media Image URL and Alternative Text.
+ * Provide tokens for Repository Item Thumbnail Image URL and Alternative Text.
+ *
+ * @todo:
+ * Add tokens for service-file:url, service-file:alt, original-image-alt, original-file:mimetype
  */
 
 use Drupal\islandora\IslandoraUtils;
