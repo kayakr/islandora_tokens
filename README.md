@@ -1,5 +1,5 @@
-# islandora_tokens
-Candidate module implementing tokens for Islandora 8.
+# Islandora Tokens (islandora_tokens)
+Implement additional tokens for Islandora 8 repository items and media.
 
 CONTENTS OF THIS FILE
 ---------------------
@@ -28,7 +28,7 @@ INSTALLATION
 ------------
 
 Install as you would normally install a contributed Drupal. See:
-https://www.drupal.org/docs/7/extend/installing-modules for further
+https://www.drupal.org/docs/user_guide/en/config-install.html for further
 information.
 
 CONFIGURATION
