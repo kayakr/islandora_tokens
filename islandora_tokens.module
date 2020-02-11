@@ -52,7 +52,7 @@ function islandora_tokens_tokens($type, $tokens, array $data, array $options, \D
           // Is there media?
           // @todo: is this single or multiple?
           if ($media) {
-            $file = islandora_tokens_file_from_media($media);
+            $file = islandora_tokens_image_from_media($media);
             $url = $file->url();
             $replacements[$original] = $url;
           }
@@ -63,6 +63,7 @@ function islandora_tokens_tokens($type, $tokens, array $data, array $options, \D
           $term = $islandoraUtils->getTermForUri('http://pcdm.org/use#ThumbnailImage');
           $media = $islandoraUtils->getMediaWithTerm($data['node'], $term);
           // Is there media?
+          // Is the media an image?
           // @todo: is this single or multiple?
           if ($media) {
             if (isset($media->field_media_image)) {
@@ -91,7 +92,7 @@ function islandora_tokens_tokens($type, $tokens, array $data, array $options, \D
  * @return mixed
  *   \Drupal\file\FileInterface on success, NULL otherwise.
  */
-function islandora_tokens_file_from_media($media) {
+function islandora_tokens_image_from_media($media) {
   $files = [];
   if ($media->hasField('field_media_image')) {
     $files = $media->get('field_media_image')->referencedEntities();
