@@ -6,4 +6,4 @@ dependencies:
 - islandora:islandora
 - token:token
 core_version_requirement: ^8 || ^9
-version: 8.x-1.0-beta2
+version: 8.x-1.0-beta3

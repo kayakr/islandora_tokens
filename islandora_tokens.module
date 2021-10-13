@@ -70,7 +70,7 @@ function islandora_tokens_tokens($type, $tokens, array $data, array $options, \D
           if ($media) {
             $file = islandora_tokens_image_from_media($media);
             if (!empty($file)) {
-              $url = $file->url();
+              $url = $file->getFileUri();
               $replacements[$original] = $url;
             }
           }

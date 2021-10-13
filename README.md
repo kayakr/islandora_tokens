@@ -14,6 +14,10 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
+Do not use this module; you can now use the tokens available via Islandora 2.x instead.
+
+This module will be deprecated and eventually removed.
+
 An initial candidate module for implementing tokens for use with Metatag and
 similar modules.
 
